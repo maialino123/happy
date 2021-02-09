@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Chúc Mừng Năm Mới.</title>
+	<link rel="stylesheet" href="">
+</head>
+<style type="text/css" media="screen">
+	* {
+		margin: 0;
+		padding: 0;
+
+	}
+	body {
+		background: #003056;
+	}
+	section {
+		position: absolute;
+		width: 100%;
+		height: 100vh;
+	}
+	.fireworks {
+		position: fixed;
+	}
+	.content {
+		z-index: 1;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+	.content h2 {
+		-webkit-text-stroke:  1px #fff;
+		color:  transparent;
+		font-size: 8em;
+		line-height: .9em;
+		animation: animateColor2 3s linear infinite;
+	}
+	.content h2 b {
+		color: #fff;
+		-webkit-text-stroke:  0px #fff;
+		animation: animateColor 3s linear infinite;
+	}
+	@keyframes animateColor {
+		0%
+		{
+			filter: hue-rotate(0deg);
+			color: red;
+		}
+		100%{
+			filter: hue-rotate(360deg);
+			color: blue;
+		}
+	}
+	
+
+</style>
+<body>
+	<iframe src="https://www.nhaccuatui.com/mh/auto/tczRiWaOiLZl" type="audio/mpeg" allow="autoplay" id="audio" style="display:none"></iframe>
+<audio autoplay>
+<source src="LamGiPhaiHot-JustaTeeDenHoangThuyLinh-6198647.mp3" type="audio/mpeg">
+</audio>
+
+		<section class="fireworks"></section>
+		<section class="content">
+			<h2>Happy New Year <b>2021</b></h2>
+		</section>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.fireworks.js"></script>
+		<script>
+			$('.fireworks').fireworks ({
+				sound:false,
+				opacity : 0.9,
+				width: '100%',
+				height : '100%'
+			});
+			
+</script>
+</body>
+</html>
