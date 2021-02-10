@@ -30,6 +30,8 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+		position: relative;
+		transform: translateX(-50%), translateY(-50%);
 	}
 	.content h2 {
 		-webkit-text-stroke:  1px #fff;
@@ -38,10 +40,11 @@
 		line-height: .9em;
 		animation: animateColor2 3s linear infinite;
 	}
-	.content h2 b {
+	.content .random span {
 		color: #fff;
 		-webkit-text-stroke:  0px #fff;
 		animation: animateColor 3s linear infinite;
+
 	}
 	@keyframes animateColor {
 		0%
@@ -73,26 +76,100 @@
 	canvas {
 		position: fixed;
 	}
+	.content .random span {
+		width: 50px;
+		display: inline-block;
+		font-size: 50px;
+	}
 	
 
 </style>
 <body>
-        <canvas id="canvas"></canvas>
-		<section class="fireworks"></section>
-		<section class="content">
-			<h2>Happy New Year <b>2021</b></h2>
-		</section>
+	<section class="fireworks"></section>
+	<section class="content">
+		<div class="random">
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr">0</span>
+		</div>
+	</section>
 
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script type="text/javascript" src="jquery.fireworks.js"></script>
-		<script>
-			$('.fireworks').fireworks ({
-				sound:true,
-				opacity : 0.9,
-				width: '100%',
-				height : '100%'
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.fireworks.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var $randomNumber = $('.nbr');
+			var $timer = 30;
+			var $it;
+			var $data = 0;
+			var index;
+			var change;
+			var letters = ["H", "a", "p", "p", "y", "N", "e", "w", "Y", "e", "a", "r", "2","0", "2","1"];
+
+			$randomNumber.each(function () {
+				change = Math.round(Math.random() * 100);
+				$(this).attr('data-change', change);
 			});
-		</script>
+
+			function random() {
+				return Math.round(Math.random() * 9);
+			};
+
+			function select() {
+				return Math.round(Math.random() * $randomNumber.length + 1);
+			};
+
+			function value() {
+				$('.nbr:nth-child(' + select() + ')').html('' + random() + '');
+				$('.nbr:nth-child(' + select() + ')').attr('data-number', $data);
+				$data++;
+
+				$randomNumber.each(function () {
+					if (parseInt($(this).attr('data-number')) > parseInt($(this).attr('data-change'))) {
+						index = $('.ltr').index(this);
+						$(this).html(letters[index]);
+						$(this).removeClass('nbr');
+					}
+				});
+			};
+			$it = setInterval(value, $timer);
+		});
+	</script>
+	<script>
+		$('.fireworks').fireworks ({
+			sound:true,
+			opacity : 0.9,
+			width: '100%',
+			height : '100%'
+		});
+	</script>
 </body>
-</html>
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-36251023-1']);
+		_gaq.push(['_setDomainName', 'jqueryscript.net']);
+			_gaq.push(['_trackPageview']);
+
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+
+			</script>
+			</html>
