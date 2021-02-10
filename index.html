@@ -41,21 +41,9 @@
 		animation: animateColor2 3s linear infinite;
 	}
 	.content .random span {
-		color: #fff;
 		-webkit-text-stroke:  0px #fff;
 		animation: animateColor 3s linear infinite;
 
-	}
-	@keyframes animateColor {
-		0%
-		{
-			filter: hue-rotate(0deg);
-			color: red;
-		}
-		100%{
-			filter: hue-rotate(360deg);
-			color: blue;
-		}
 	}
 	.set {
 		position: absolute;
@@ -88,28 +76,49 @@
 	<section class="fireworks"></section>
 	<section class="content">
 		<div class="random">
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
-			<span class="span nbr ltr">0</span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="no">0</p></span>
+			<span class="span nbr ltr"><p class="vacancy">0</p></span>
+			<span class="span nbr ltr"><p class="vacancy">0</p></span>
+			<span class="span nbr ltr"><p class="vacancy">0</p></span>
+			<span class="span nbr ltr"><p class="vacancy">0</p></span>
 		</div>
 	</section>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery.fireworks.js"></script>
+	<script type="text/javascript" src="jquery.novacancy.js"></script>
+	<!-- <script type="text/javascript">
+		$(document).ready(function() {
+			$('#no').novacancy({
+				'reblinkProbability': 0.1,
+				'blinkMin': 0.2,
+				'blinkMax': 0.6,
+				'loopMin': 8,
+				'loopMax': 10,
+				'color': '#ffffff',
+				'glow': ['0 0 80px #ffffff', '0 0 30px #008000', '0 0 6px #0000ff']
+			}); 
+
+			$('#vacancy').novacancy({
+				'blink': 1,
+				'off': 1,
+				'color': 'Red',
+				'glow': ['0 0 80px Red', '0 0 30px FireBrick', '0 0 6px DarkRed']
+			});
+		});
+	</script> -->
 	<script type="text/javascript">
 		$(document).ready(function () {
 			var $randomNumber = $('.nbr');
@@ -143,10 +152,26 @@
 						index = $('.ltr').index(this);
 						$(this).html(letters[index]);
 						$(this).removeClass('nbr');
+						$(".no").novacancy({
+							'reblinkProbability': 0.1,
+							'blinkMin': 0.2,
+							'blinkMax': 0.6,
+							'loopMin': 8,
+							'loopMax': 10,
+							'color': 'red',
+							'glow': ['0 0 80px #ffffff', '0 0 30px #008000', '0 0 6px #0000ff']
+						}); 
+						$(".vacancy").novacancy({
+							'blink': 1,
+							'off': 1,
+							'color': 'Red',
+							'glow': ['0 0 80px Red', '0 0 30px FireBrick', '0 0 6px DarkRed']
+						});
 					}
 				});
 			};
 			$it = setInterval(value, $timer);
+
 		});
 	</script>
 	<script>
@@ -157,19 +182,39 @@
 			height : '100%'
 		});
 	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#no').novacancy({
+				'reblinkProbability': 0.1,
+				'blinkMin': 0.2,
+				'blinkMax': 0.6,
+				'loopMin': 8,
+				'loopMax': 10,
+				'color': '#ffffff',
+				'glow': ['0 0 80px #ffffff', '0 0 30px #008000', '0 0 6px #0000ff']
+			}); 
+
+			$('#vacancy').novacancy({
+				'blink': 1,
+				'off': 1,
+				'color': 'Red',
+				'glow': ['0 0 80px Red', '0 0 30px FireBrick', '0 0 6px DarkRed']
+			});
+		});
+	</script>
 </body>
 <script type="text/javascript">
 
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-36251023-1']);
-		_gaq.push(['_setDomainName', 'jqueryscript.net']);
-			_gaq.push(['_trackPageview']);
+	_gaq.push(['_setDomainName', 'jqueryscript.net']);
+	_gaq.push(['_trackPageview']);
 
-				(function() {
-					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-				})();
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
 
-			</script>
-			</html>
+</script>
+</html>
