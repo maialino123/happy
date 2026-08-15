@@ -1,0 +1,29 @@
+{
+  "name": "ltv-mk-ii-schematic",
+  "version": "1.0.0",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "artifact": "node tools/build.mjs && node tools/make-artifact.mjs",
+    "serve": "http-server -p 8080 -c-1 .",
+    "verify": "node tools/verify.mjs",
+    "verify:logic": "node tools/verify.mjs --logic"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maialino123/happy.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maialino123/happy/issues"
+  },
+  "homepage": "https://github.com/maialino123/happy#readme",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "three": "^0.185.1"
+  },
+  "private": true,
+  "type": "module"
+}
